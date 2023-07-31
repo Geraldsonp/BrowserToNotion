@@ -1,0 +1,25 @@
+@import './base.css';
+body{
+  height: 400px;
+  @apply min-w-[300px] min-h-[300px]
+ 
+}
+#app {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+  @apply h-full
+}
+
+*{
+  font-family: 'PT Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: normal;
+}
+
+
+
