@@ -4,12 +4,12 @@
         <p class="guide-text">For a guide on how to get this information please read this article: <a href="https://developers.notion.com/docs/authorization">How to create an integration</a></p>
         <form @submit="handleSubmit">
         <div class="input-group">
-            <label for="conectionId">Conection id</label>
-            <input required name="databaseId" type="text"/>
+            <label for="NotionSecret">Notion Secret</label>
+            <input v-model="NotionSecret" required name="NotionSecret" type="text"/>
         </div>
         <div class="input-group">
-            <label for="databaseId">Database id</label>
-            <input required name="databaseId" type="text" class="" />
+            <label for="DatabaseId">Database id</label>
+            <input v-model="DatabaseId" required name="DatabaseId" type="text" class="" />
         </div>
         <button type="submit">Connect to my Notion</button>
         </form>
@@ -19,9 +19,18 @@
 <script setup>
 import { ref } from 'vue'
 
+var emits = defineEmits(['onTokenSet']);
+
+const NotionSecret = ref('');
+const DatabaseId = ref('');
+
 const handleSubmit =(e)=>{
     e.preventDefault()
     console.log(e)
+
+    localStorage.setItem('NotionSecret', NotionSecret.value)
+    localStorage.setItem('DatabaseId', DatabaseId.value)
+    emits('onTokenSet')
 }
 </script>
   
