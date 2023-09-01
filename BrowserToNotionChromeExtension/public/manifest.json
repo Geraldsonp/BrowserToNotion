@@ -3,6 +3,10 @@
     "name": "Browser To Notion",
     "description": "Extension to send the current tab to Notion",
     "version": "1.0",
+    "permissions": [
+        "activeTab",
+        "scripting"
+      ],
     "action": {
         "default_popup": "index.html"
     }
