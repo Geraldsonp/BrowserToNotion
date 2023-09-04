@@ -8,7 +8,7 @@ const databaseId = localStorage.getItem('DatabaseId');
 const notionToken = localStorage.getItem('NotionSecret');
 
 api.interceptors.request.use(async (config) => {
-    config.headers.Authorization = `Bearer ${notionToken}`;
+    config.headers["Notion-Token"] = `${notionToken}`;
     config.headers['Notion-Version'] = '2021-05-13';
     return config;
 });
