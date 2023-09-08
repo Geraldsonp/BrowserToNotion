@@ -1,20 +1,18 @@
 import axios from 'axios';
+import AppConfig from '../AppConfig';
 
 const api = axios.create({
-    baseURL: 'http://localhost:5183',
+    baseURL: 'http://localhost:7071/api',
 });
 
-const databaseId = localStorage.getItem('DatabaseId');
-const notionToken = localStorage.getItem('NotionSecret');
-
 api.interceptors.request.use(async (config) => {
-    config.headers["Notion-Token"] = `${notionToken}`;
+    config.headers["Notion-Token"] = `${AppConfig.getNotionToken()}`;
     config.headers['Notion-Version'] = '2021-05-13';
     return config;
 });
 
 const getDatabaseInfo = async () => {
-    const response = await api.get(`/databases/${databaseId}`);
+    const response = await api.get(`/databases/${AppConfig.getDatabaseId()}`);
     return response.data;
 }
 

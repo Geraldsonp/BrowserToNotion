@@ -12,15 +12,15 @@ import api from "../services/api";
 
 const databaseInfo = ref(null)
 
-const getTabs = () => {
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    const activeTab = tabs[0];
-    const url = activeTab.url;
-    const title = activeTab.title;
-    const favIconUrl = activeTab.favIconUrl;
-    console.log(activeTab);
-  });
-};
+// const getTabs = () => {
+//   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+//     const activeTab = tabs[0];
+//     const url = activeTab.url;
+//     const title = activeTab.title;
+//     const favIconUrl = activeTab.favIconUrl;
+//     console.log(activeTab);
+//   });
+// };
 
 onMounted( () => {
   api.getDatabaseInfo().then( (res) => {
