@@ -3,7 +3,7 @@
 
   <div class="flex flex-col justify-content-center justify-center mt-8">
     <p>Current URL: {{currentUrl}}</p>
-    <button @click="getTabs" class="px-2 py-1 text-gray-50 bg-black rounded-md hover:outline-1 outline-stone-500">Send to Notion</button>
+    <button @click="postPage" class="px-2 py-1 text-gray-50 bg-black rounded-md hover:outline-1 outline-stone-500">Send to Notion</button>
   </div>
 </template>
 
@@ -23,6 +23,10 @@ const currentUrl = computed( () => window.location.href)
 //     console.log(activeTab);
 //   });
 // };
+
+const postPage = () => {
+  api.createPage()
+}
 
 onMounted( () => {
   api.getDatabaseInfo().then( (res) => {

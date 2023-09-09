@@ -17,8 +17,34 @@ const getDatabaseInfo = async () => {
 }
 
 const createPage = async (page) => {
-    const response = await api.post('/pages');
+    const pageObject = {
+        "parent": { "database_id": "d9824bdc84454327be8b5b47500af6ce" },
+        "icon": {
+            "emoji": "🥬"
+        },
+        "properties": {
+            "Name": {
+                "title": [
+                    {
+                        "text": {
+                            "content": "Tuscan Kale"
+                        }
+                    }
+                ]
+            },
+            "Description": {
+                "rich_text": [
+                    {
+                        "text": {
+                            "content": "A dark green leafy vegetable"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+    const response = await api.post('/PostPage', pageObject);
     return response.data;
 }
 
-export default {getDatabaseInfo, createPage}
+export default { getDatabaseInfo, createPage }
