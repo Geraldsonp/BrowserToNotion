@@ -18,8 +18,8 @@
   
 <script setup>
 import { ref } from 'vue'
-import AppConfig from '../AppConfig';
-
+import { defineEmits, inject } from 'vue';
+import appConfig from '../AppConfig.js';
 var emits = defineEmits(['onTokenSet']);
 
 const NotionSecret = ref('');
@@ -27,10 +27,8 @@ const DatabaseId = ref('');
 
 const handleSubmit =(e)=>{
     e.preventDefault()
-    AppConfig.setConfig({
-        NotionSecret: NotionSecret.value,
-        DatabaseId: DatabaseId.value
-    })
+    appConfig.setCredentiasl(DatabaseId.value , NotionSecret.value)
+    console.log('submitted')
     emits('onTokenSet')
 }
 </script>

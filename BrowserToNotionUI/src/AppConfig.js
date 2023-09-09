@@ -1,9 +1,9 @@
-import { ref } from "vue";
+import { reactive } from "vue";
 
 class config {
     constructor(){
-        this.databaseId = localStorage.getItem('DatabaseId');
-        this.notionToken = localStorage.getItem('NotionSecret');
+        this.databaseId = localStorage.getItem('DatabaseId') ?? "";
+        this.notionToken = localStorage.getItem('NotionSecret') ?? "";
     }
 
     setCredentiasl(databaseId, notionToken) {
@@ -24,4 +24,6 @@ class config {
         return this.databaseId && this.notionToken;
     }
 }
-export default new config();
+
+const configInstance = reactive(new config());
+export default configInstance;
