@@ -18,6 +18,7 @@
   
 <script setup>
 import { ref } from 'vue'
+import AppConfig from '../AppConfig';
 
 var emits = defineEmits(['onTokenSet']);
 
@@ -26,10 +27,10 @@ const DatabaseId = ref('');
 
 const handleSubmit =(e)=>{
     e.preventDefault()
-    console.log(e)
-
-    localStorage.setItem('NotionSecret', NotionSecret.value)
-    localStorage.setItem('DatabaseId', DatabaseId.value)
+    AppConfig.setConfig({
+        NotionSecret: NotionSecret.value,
+        DatabaseId: DatabaseId.value
+    })
     emits('onTokenSet')
 }
 </script>

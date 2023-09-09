@@ -9,6 +9,8 @@ class config {
     setCredentiasl(databaseId, notionToken) {
         localStorage.setItem('DatabaseId', databaseId);
         localStorage.setItem('NotionSecret', notionToken);
+        this.databaseId = databaseId;
+        this.notionToken = notionToken;
     }
 
     getDatabaseId() {

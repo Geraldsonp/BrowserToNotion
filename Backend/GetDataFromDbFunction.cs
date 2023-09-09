@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Net.Http;
 using Backend.Models;
+using System.Net.Http.Json;
 
 namespace BrowserToNotion
 {
